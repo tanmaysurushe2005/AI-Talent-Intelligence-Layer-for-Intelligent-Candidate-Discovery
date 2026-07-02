@@ -777,42 +777,6 @@ confidence = (number of non-empty fields ÷ 7) × 100
 
 A confidence of 57% means only 4 out of 7 profile fields have data — the ranking for that candidate is less reliable.
 
----
-
-## 🤖 Optional Gemini AI Setup
-
-By default, everything works **offline** without any API key. Optionally, you can enable Google Gemini AI for enhanced JD extraction and recruiter-friendly explanations.
-
-### What Gemini Improves
-
-| Feature | Without Gemini | With Gemini |
-|---------|---------------|-------------|
-| JD Intelligence | Regex/keyword extraction | AI-powered structured extraction |
-| Explainability | Template-based output | Natural language narratives |
-
-### How to Enable
-
-**Windows PowerShell (session-only):**
-```powershell
-.venv\Scripts\Activate.ps1
-$env:GEMINI_API_KEY="your_api_key_here"
-streamlit run frontend/streamlit_app.py
-```
-
-**macOS/Linux:**
-```bash
-source .venv/bin/activate
-export GEMINI_API_KEY="your_api_key_here"
-streamlit run frontend/streamlit_app.py
-```
-
-> ⚠️ **Never hardcode API keys in source files or commit them to Git.**
-
-The system uses `gemini-1.5-flash` by default. You can override this with the `GEMINI_MODEL` environment variable.
-
-If Gemini is unavailable or returns an error, both modules automatically fall back to their offline implementations — the app never crashes.
-
----
 
 ## 🎬 Demo Walkthrough
 
@@ -830,40 +794,6 @@ If Gemini is unavailable or returns an error, both modules automatically fall ba
    - Open the "Structured JD" expander to show what was extracted
    - Use the download buttons (JSON/CSV) to export results
 
-### Pre-Demo QA Checklist
-
-- [ ] App launches without errors: `streamlit run frontend/streamlit_app.py`
-- [ ] Test once **without** `GEMINI_API_KEY` to confirm offline mode works
-- [ ] Test once **with** `GEMINI_API_KEY` to confirm AI-enhanced mode works
-- [ ] Structured JD expander shows sensible extracted fields
-- [ ] Score breakdown bars render correctly for ranked candidates
-- [ ] JSON and CSV download buttons work
-- [ ] No NumPy-related type errors during rendering or export
-
-### Presentation Tips
-
-- Lead with the **ranked shortlist and explanations** — not the raw JSON
-- If using Gemini, highlight that the app **still works offline** when the key is removed
-- Show the **score breakdown** for the top candidate to demonstrate multi-signal ranking
-- Point out edge cases: the fresh grad with high potential, the stale senior ranked lower
-
----
-
-## ⚠ Known Limitations
-
-These are expected for a prototype and are documented here for transparency:
-
-| Limitation | Details | Production Fix |
-|-----------|---------|---------------|
-| **Small skills vocabulary** | Only 24 hardcoded skills in `jd_intelligence.py` | Use ESCO taxonomy, LinkedIn Skills API, or LLM extraction |
-| **Exact-match domain matching** | "Backend Engineering" ≠ "Software Engineering" | Use domain taxonomy or semantic matching |
-| **Hand-picked weights** | The signal weights in `ranking.py` are manually tuned | Train with Learning-to-Rank on real hiring data |
-| **No persistent storage** | Candidate data loaded from JSON file each time | Add a database (PostgreSQL, MongoDB) |
-| **Brute-force similarity** | Cosine similarity computed against every candidate | Use vector database (FAISS, Chroma) for large pools |
-| **Single JD format** | Expects plain text JD input | Add PDF/DOCX parsing |
-| **No user authentication** | API is open with CORS `*` | Add auth middleware for production |
-
----
 
 ## 🗺 Future Roadmap
 
@@ -875,37 +805,5 @@ These are expected for a prototype and are documented here for transparency:
 6. **Feedback Loop** — Let recruiters rate recommendations to improve the system over time
 7. **Production Deployment** — Dockerize, add CI/CD, monitoring, and authentication
 
----
 
-## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Make your changes
-4. Test with both Streamlit and FastAPI interfaces
-5. Submit a pull request
-
-**Key areas where contributions would be valuable:**
-- Expanding the skills vocabulary
-- Adding resume parsing (PDF/DOCX)
-- Implementing Learning-to-Rank
-- Adding unit tests
-- Improving the Streamlit UI
-
----
-
-## 📄 License
-
-This project is for educational and demonstration purposes. See the repository for license details.
-
----
-
-<div align="center">
-
-**Built with ❤️ using Python, FastAPI, Streamlit, and sentence-transformers**
-
-*Star ⭐ this repo if you found it useful!*
-
-</div>
