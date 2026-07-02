@@ -1,0 +1,479 @@
+[
+  {
+    "id": "R001",
+    "name": "Aditi Sharma",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "AWS"
+    ],
+    "experience_years": 3,
+    "education": "B.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "AWS Certified Developer"
+    ],
+    "projects": [
+      "Built a scalable order-processing microservice handling 10k req/min",
+      "Led migration from monolith to FastAPI microservices"
+    ],
+    "recent_learning": [
+      "LangChain (2025)",
+      "Kubernetes (2025)"
+    ],
+    "hackathons": 2,
+    "last_active_year": 2026,
+    "summary": "Backend engineer with 3 years building scalable APIs and cloud infra."
+  },
+  {
+    "id": "R002",
+    "name": "Rohan Mehta",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "MySQL"
+    ],
+    "experience_years": 5,
+    "education": "B.E Information Technology",
+    "location": "Mumbai",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "Maintained legacy banking backend system"
+    ],
+    "recent_learning": [],
+    "hackathons": 0,
+    "last_active_year": 2022,
+    "summary": "Senior Java backend developer, mostly maintenance work since 2022."
+  },
+  {
+    "id": "R003",
+    "name": "Sneha Iyer",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "PyTorch",
+      "FastAPI",
+      "Vector Databases"
+    ],
+    "experience_years": 2,
+    "education": "M.Tech Data Science",
+    "location": "Bangalore",
+    "work_authorized": true,
+    "domain": "AI/ML Engineering",
+    "certifications": [
+      "Deep Learning Specialization"
+    ],
+    "projects": [
+      "Built a RAG-based document search system using FAISS and LangChain",
+      "Fine-tuned LLaMA models with LoRA for domain-specific chatbots"
+    ],
+    "recent_learning": [
+      "LLM fine-tuning (2026)",
+      "RAG pipelines (2025)"
+    ],
+    "hackathons": 4,
+    "last_active_year": 2026,
+    "summary": "AI engineer specializing in LLM applications and retrieval systems, very active in hackathons."
+  },
+  {
+    "id": "R004",
+    "name": "Karan Verma",
+    "skills": [
+      "Python",
+      "Django",
+      "Redis"
+    ],
+    "experience_years": 1,
+    "education": "B.Tech Computer Science",
+    "location": "Remote",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "College project: e-commerce site with Django"
+    ],
+    "recent_learning": [
+      "FastAPI (2026)",
+      "Docker (2026)"
+    ],
+    "hackathons": 3,
+    "last_active_year": 2026,
+    "summary": "Junior backend dev, fast learner, very active recently despite short experience."
+  },
+  {
+    "id": "R005",
+    "name": "Priya Nair",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js"
+    ],
+    "experience_years": 4,
+    "education": "B.Sc Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Frontend Engineering",
+    "certifications": [],
+    "projects": [
+      "Built dashboard UIs for a fintech startup"
+    ],
+    "recent_learning": [],
+    "hackathons": 1,
+    "last_active_year": 2025,
+    "summary": "Frontend developer with strong React experience, not a backend fit."
+  },
+  {
+    "id": "R006",
+    "name": "Vikram Rao",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "GCP"
+    ],
+    "experience_years": 6,
+    "education": "M.Tech Computer Science",
+    "location": "Hyderabad",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "GCP Professional Cloud Architect"
+    ],
+    "projects": [
+      "Architected a multi-tenant SaaS backend serving 500+ clients",
+      "Reduced API latency by 60% through query optimization"
+    ],
+    "recent_learning": [
+      "Rust (2026)"
+    ],
+    "hackathons": 0,
+    "last_active_year": 2026,
+    "summary": "Senior backend architect, strong track record but AWS-light (uses GCP)."
+  },
+  {
+    "id": "R007",
+    "name": "Ananya Deshpande",
+    "skills": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "experience_years": 2,
+    "education": "B.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "Built an internal tools API for a logistics startup"
+    ],
+    "recent_learning": [
+      "FastAPI (2025)",
+      "PostgreSQL (2025)"
+    ],
+    "hackathons": 1,
+    "last_active_year": 2025,
+    "summary": "Backend dev transitioning from Flask/Mongo stack toward FastAPI/Postgres."
+  },
+  {
+    "id": "R008",
+    "name": "Farhan Sheikh",
+    "skills": [
+      "C++",
+      "Embedded Systems",
+      "RTOS"
+    ],
+    "experience_years": 4,
+    "education": "B.E Electronics",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Embedded Systems",
+    "certifications": [],
+    "projects": [
+      "Developed firmware for IoT sensor devices"
+    ],
+    "recent_learning": [],
+    "hackathons": 0,
+    "last_active_year": 2024,
+    "summary": "Embedded systems engineer, no web backend experience -- clear domain mismatch."
+  },
+  {
+    "id": "R009",
+    "name": "Meera Krishnan",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Kubernetes"
+    ],
+    "experience_years": 4,
+    "education": "B.Tech Computer Science",
+    "location": "Bangalore",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "AWS Certified Solutions Architect",
+      "CKA"
+    ],
+    "projects": [
+      "Led backend team for a fintech payments platform",
+      "Built CI/CD pipeline reducing deployment time by 70%"
+    ],
+    "recent_learning": [
+      "LLM-based observability (2026)"
+    ],
+    "hackathons": 1,
+    "last_active_year": 2026,
+    "summary": "Well-rounded senior backend engineer, strong all-around fit."
+  },
+  {
+    "id": "R010",
+    "name": "Arjun Kapoor",
+    "skills": [
+      "Python",
+      "Django",
+      "PostgreSQL"
+    ],
+    "experience_years": 8,
+    "education": "B.Tech Computer Science",
+    "location": "Delhi",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "Maintained a Django monolith for an edtech company since 2018"
+    ],
+    "recent_learning": [],
+    "hackathons": 0,
+    "last_active_year": 2021,
+    "summary": "Very experienced but hasn't touched new tools/frameworks in years -- classic 'stale senior'."
+  },
+  {
+    "id": "R011",
+    "name": "Ishita Bansal",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "SQLite",
+      "Docker"
+    ],
+    "experience_years": 0,
+    "education": "B.Tech Computer Science (final year)",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "Built and deployed 3 FastAPI side projects",
+      "Won runner-up at a national hackathon"
+    ],
+    "recent_learning": [
+      "AWS basics (2026)",
+      "PostgreSQL (2026)",
+      "System Design (2026)"
+    ],
+    "hackathons": 6,
+    "last_active_year": 2026,
+    "summary": "Fresh graduate, zero professional experience but extremely high recent activity and learning velocity."
+  },
+  {
+    "id": "R012",
+    "name": "Devansh Patil",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "experience_years": 3,
+    "education": "B.Tech Computer Science",
+    "location": "Chennai",
+    "work_authorized": false,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "AWS Certified Developer"
+    ],
+    "projects": [
+      "Built scalable APIs for a logistics platform"
+    ],
+    "recent_learning": [
+      "Docker (2025)"
+    ],
+    "hackathons": 1,
+    "last_active_year": 2025,
+    "summary": "Great skill match but not currently work-authorized -- should be filtered out."
+  },
+  {
+    "id": "R013",
+    "name": "Neha Joshi",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "Scikit-learn"
+    ],
+    "experience_years": 3,
+    "education": "M.Sc Statistics",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Data Science",
+    "certifications": [
+      "TensorFlow Developer Certificate"
+    ],
+    "projects": [
+      "Built churn prediction models for a telecom client"
+    ],
+    "recent_learning": [
+      "MLOps (2025)"
+    ],
+    "hackathons": 2,
+    "last_active_year": 2025,
+    "summary": "Data scientist, adjacent but not a direct backend-engineer fit."
+  },
+  {
+    "id": "R014",
+    "name": "Siddharth Rao",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "LangChain",
+      "RAG"
+    ],
+    "experience_years": 2,
+    "education": "B.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "AWS Certified Developer"
+    ],
+    "projects": [
+      "Built an LLM-powered support ticket triage system with RAG",
+      "Deployed a FastAPI + Postgres backend for a hackathon-winning project"
+    ],
+    "recent_learning": [
+      "LLM fine-tuning (2026)",
+      "Vector databases (2026)"
+    ],
+    "hackathons": 5,
+    "last_active_year": 2026,
+    "summary": "Strong core skill match plus exactly the 'nice to have' LLM/vector DB experience -- should rank very high."
+  },
+  {
+    "id": "R015",
+    "name": "Tanvi Oak",
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js"
+    ],
+    "experience_years": 3,
+    "education": "B.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Frontend Engineering",
+    "certifications": [],
+    "projects": [
+      "Built a design system used across 5 products"
+    ],
+    "recent_learning": [
+      "React Server Components (2026)"
+    ],
+    "hackathons": 1,
+    "last_active_year": 2026,
+    "summary": "Strong frontend engineer, irrelevant for a backend JD -- good eligibility-filter test case."
+  },
+  {
+    "id": "R016",
+    "name": "Yash Kulkarni",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "MySQL",
+      "Docker"
+    ],
+    "experience_years": 2,
+    "education": "B.Tech Computer Science",
+    "location": "Nashik",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [],
+    "projects": [
+      "Built a booking system backend for a local business"
+    ],
+    "recent_learning": [
+      "AWS (2026)"
+    ],
+    "hackathons": 2,
+    "last_active_year": 2026,
+    "summary": "Solid mid-tier match, slightly off on location and one required skill (Postgres vs MySQL)."
+  },
+  {
+    "id": "R017",
+    "name": "Ritika Chawla",
+    "skills": [
+      "Go",
+      "Kubernetes",
+      "gRPC"
+    ],
+    "experience_years": 5,
+    "education": "B.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "CKA"
+    ],
+    "projects": [
+      "Built high-throughput Go microservices for a ride-hailing platform"
+    ],
+    "recent_learning": [
+      "Rust (2025)"
+    ],
+    "hackathons": 0,
+    "last_active_year": 2025,
+    "summary": "Strong backend engineer but wrong language stack (Go, not Python) -- tests skill-specificity."
+  },
+  {
+    "id": "R018",
+    "name": "Om Ghosh",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "System Design"
+    ],
+    "experience_years": 10,
+    "education": "M.Tech Computer Science",
+    "location": "Pune",
+    "work_authorized": true,
+    "domain": "Backend Engineering",
+    "certifications": [
+      "AWS Certified Solutions Architect Professional"
+    ],
+    "projects": [
+      "Principal engineer, designed backend platform serving 10M+ users",
+      "Mentored 15+ engineers, ran architecture review board"
+    ],
+    "recent_learning": [
+      "LLM system design (2026)"
+    ],
+    "hackathons": 0,
+    "last_active_year": 2026,
+    "summary": "Very senior, possibly overqualified -- tests whether ranking handles over-qualification sensibly."
+  }
+]
