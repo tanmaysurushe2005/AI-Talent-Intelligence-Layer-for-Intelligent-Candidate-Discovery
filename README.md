@@ -47,6 +47,7 @@ For the current demo state, the Streamlit UI includes:
 - score breakdown bars for each ranked candidate
 - a structured JD expander with summary fields and raw JSON
 - JSON and CSV download buttons for the ranked output
+- safe handling of NumPy scalar values (for example `float32`) in both progress bars and JSON export
 
 ### Option B — FastAPI backend (for when Person 1's frontend needs an API)
 ```bash
@@ -77,6 +78,7 @@ Use this short checklist before presenting the prototype:
 4. Open the structured JD expander and confirm the summary fields look sensible.
 5. Check that the score breakdown bars and download buttons appear for ranked candidates.
 6. Export the JSON or CSV once to make sure the output is easy to share after the demo.
+7. Confirm there are no Streamlit type errors related to NumPy values during rendering/export.
 
 ## Presentation notes
 

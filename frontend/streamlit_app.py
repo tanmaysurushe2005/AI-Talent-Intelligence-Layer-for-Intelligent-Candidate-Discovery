@@ -22,6 +22,24 @@ with open(DATA_DIR / "sample_resumes.json") as f:
 default_jd = (DATA_DIR / "sample_jd.txt").read_text()
 
 
+def _to_json_safe(value):
+    if isinstance(value, dict):
+        return {key: _to_json_safe(val) for key, val in value.items()}
+    if isinstance(value, list):
+        return [_to_json_safe(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_to_json_safe(item) for item in value)
+
+    # Handles NumPy scalar types like float32/int64 without importing numpy.
+    if hasattr(value, "item"):
+        try:
+            return value.item()
+        except Exception:
+            pass
+
+    return value
+
+
 def _build_csv_download(rows: list) -> str:
     buffer = io.StringIO()
     fieldnames = [
@@ -76,8 +94,9 @@ def _render_score_breakdown(signals: dict):
     left, right = st.columns(2)
     for index, (label, value) in enumerate(breakdown_rows):
         column = left if index < 5 else right
-        column.write(f"{label}: {value:.2f}")
-        column.progress(min(max(value, 0.0), 1.0))
+        numeric_value = float(_to_json_safe(value))
+        column.write(f"{label}: {numeric_value:.2f}")
+        column.progress(min(max(numeric_value, 0.0), 1.0))
 
 col1, col2 = st.columns([1, 1])
 with col1:
@@ -129,7 +148,7 @@ if run:
 
         if result["results"]:
             export_col1, export_col2 = st.columns(2)
-            export_payload = json.dumps(result, indent=2)
+            export_payload = json.dumps(_to_json_safe(result), indent=2)
             export_csv = _build_csv_download(result["results"])
             export_col1.download_button(
                 "Download ranked results (JSON)",
