@@ -116,6 +116,19 @@ Set `GEMINI_API_KEY` in your environment to enable Gemini for:
 - `app/jd_intelligence.py` — JD extraction into structured JSON
 - `app/explainability.py` — recruiter-facing ranking explanations
 
+### Windows PowerShell (session-only)
+
+```powershell
+.venv\Scripts\Activate.ps1
+$env:GEMINI_API_KEY="your_real_key_here"
+streamlit run frontend/streamlit_app.py
+```
+
+This sets the key only for the current terminal session. Open a new terminal and you need to set
+it again.
+
+Do not hardcode API keys in source files or commit them to Git.
+
 If Gemini is unavailable or returns an error, both modules fall back to the current rule-based
 paths automatically, so the prototype still runs offline.
 
