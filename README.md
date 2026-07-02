@@ -4,6 +4,9 @@ Working prototype of all 8 features from the project doc, built to run **fully o
 no API key required, so you have something demoable today. Optional Gemini support is wired in
 for JD Intelligence and Explainability if you set an API key.
 
+Verified locally on Python 3.13 with the project virtual environment rebuilt from scratch.
+The end-to-end sample pipeline now runs successfully and returns ranked candidates.
+
 ## Progress so far
 
 - Feature 4 now uses sentence-transformer embeddings with an automatic TF-IDF fallback.
@@ -36,6 +39,15 @@ streamlit run frontend/streamlit_app.py
 ```
 Opens a browser UI: paste/edit a JD, click "Run", see the ranked shortlist with explanations.
 
+If you recreate the environment, prefer Python 3.13 for this prototype. The current setup was
+validated in a fresh `.venv` on Python 3.13.
+
+For the current demo state, the Streamlit UI includes:
+
+- score breakdown bars for each ranked candidate
+- a structured JD expander with summary fields and raw JSON
+- JSON and CSV download buttons for the ranked output
+
 ### Option B — FastAPI backend (for when Person 1's frontend needs an API)
 ```bash
 pip install -r requirements.txt
@@ -48,12 +60,29 @@ Then:
 - Interactive docs at `http://localhost:8000/docs`
 
 ## Sample data
-- `data/sample_resumes.json` — 5 synthetic candidates (intentionally includes one strong match,
+- `data/sample_resumes.json` — 18 synthetic candidates (intentionally includes one strong match,
   one stale senior, one fast-learning junior, one AI specialist, one irrelevant frontend dev —
   good for demoing that ranking isn't just keyword count)
 - `data/sample_jd.txt` — matching JD to test against
 
 Swap these for your real dataset once Person 2 has one ready — same JSON shape.
+
+## Demo QA checklist
+
+Use this short checklist before presenting the prototype:
+
+1. Run the app from the project root with `streamlit run frontend/streamlit_app.py`.
+2. Test one JD with `GEMINI_API_KEY` unset to confirm the offline fallback works.
+3. Test one JD with `GEMINI_API_KEY` set to confirm the Gemini-backed extraction and explanation paths.
+4. Open the structured JD expander and confirm the summary fields look sensible.
+5. Check that the score breakdown bars and download buttons appear for ranked candidates.
+6. Export the JSON or CSV once to make sure the output is easy to share after the demo.
+
+## Presentation notes
+
+- Lead with the ranked shortlist and the explanation text, not the raw JSON.
+- If you use Gemini, point out that the app still falls back cleanly when the key is absent.
+- Save the download buttons for the end of the walkthrough so the demo feels complete.
 
 ## Update: real embeddings (done, with fallback)
 
