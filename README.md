@@ -1,4 +1,4 @@
-<![CDATA[# 🧠 AI Talent Intelligence Layer — Intelligent Candidate Discovery
+# 🧠 AI Talent Intelligence Layer — Intelligent Candidate Discovery
 
 > An AI-powered recruitment intelligence system that goes far beyond keyword matching. It reads a job description, understands what the role actually needs, and then finds, ranks, and explains the best candidates from your talent pool — all in seconds.
 
@@ -909,4 +909,3 @@ This project is for educational and demonstration purposes. See the repository f
 *Star ⭐ this repo if you found it useful!*
 
 </div>
-]]>
