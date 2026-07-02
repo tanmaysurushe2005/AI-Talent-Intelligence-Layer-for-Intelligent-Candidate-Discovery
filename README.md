@@ -1,20 +1,28 @@
 # AI Talent Intelligence Layer — Prototype
 
 Working prototype of all 8 features from the project doc, built to run **fully offline** with
-no API key required, so you have something demoable today. Upgrade paths to real
-embeddings/LLMs are noted inline in the code (search for "Upgrade path").
+no API key required, so you have something demoable today. Optional Gemini support is wired in
+for JD Intelligence and Explainability if you set an API key.
+
+## Progress so far
+
+- Feature 4 now uses sentence-transformer embeddings with an automatic TF-IDF fallback.
+- The sample dataset was expanded from 5 to 18 candidates so the ranking path is exercised on
+   stronger matches, near-misses, and edge cases.
+- Feature 2 and Feature 7 can now use Gemini when `GEMINI_API_KEY` is present, while keeping the
+   original offline rule-based fallback.
 
 ## What's implemented
 
 | # | Feature | How it's done here |
 |---|---------|--------------------|
 | 1 | JD Validation | Rule-based (`app/jd_validation.py`) |
-| 2 | JD Intelligence | Regex/keyword extraction (`app/jd_intelligence.py`) |
+| 2 | JD Intelligence | Regex/keyword extraction with optional Gemini JSON output (`app/jd_intelligence.py`) |
 | 3 | Rule-Based Eligibility | Hard/soft filters (`app/eligibility.py`) |
-| 4 | Semantic Retrieval | TF-IDF + cosine similarity (`app/retrieval.py`) |
+| 4 | Semantic Retrieval | Sentence-transformer embeddings with TF-IDF fallback (`app/retrieval.py`) |
 | 5 | Multi-Signal Ranking | Weighted signal blend (`app/ranking.py`) |
 | 6 | Future Potential Engine | Recency/learning-velocity heuristics (`app/future_potential.py`) |
-| 7 | Explainability | Template-based, signal-driven (`app/explainability.py`) |
+| 7 | Explainability | Template-based with optional Gemini narrative output (`app/explainability.py`) |
 | 8 | Confidence Score | Data completeness check (`app/confidence.py`) |
 
 `app/pipeline.py` wires all 8 together in the order from the architecture diagram in your doc.
@@ -65,14 +73,20 @@ and eligibility behave sensibly, not just that the pipeline runs.
 
 1. **Vector DB (FAISS/Chroma)**: only worth adding once your real candidate pool is large
    (50+); at current scale brute-force cosine similarity is already instant.
-2. **LLM-based JD Intelligence**: replace the regex extraction in `jd_intelligence.py` with a
-   Gemini/OpenAI call that returns the same `StructuredJD` JSON shape. Gemini has a free tier
-   (Google AI Studio) — good fit for the "low-cost AI architecture" principle in your doc, since
-   you'd only call the LLM here and in explainability, exactly as planned.
-3. **LLM-based Explainability**: replace the templates in `explainability.py` with a prompt that
-   takes the same `ranking_result` / `potential_result` signals and asks for a 2-3 sentence
-   natural-language explanation. Keep the output dict shape (`why_selected`, `strengths`,
-   `missing_skills`) so the frontend doesn't need changes.
+2. **Prompt quality and guardrails**: tighten the Gemini prompts, add stronger JSON validation,
+   and tune the fallback thresholds if you want more consistent demo output.
+3. **Ranking calibration**: the weights in `ranking.py` are still hand-picked, so the next
+   meaningful improvement is testing and tuning them against a larger dataset.
+
+## Optional Gemini setup
+
+Set `GEMINI_API_KEY` in your environment to enable Gemini for:
+
+- `app/jd_intelligence.py` — JD extraction into structured JSON
+- `app/explainability.py` — recruiter-facing ranking explanations
+
+If Gemini is unavailable or returns an error, both modules fall back to the current rule-based
+paths automatically, so the prototype still runs offline.
 
 ## Known rough edges (expected for a v0 prototype)
 - Skill vocabulary in `jd_intelligence.py` is a small hardcoded list — fine for demo, needs a

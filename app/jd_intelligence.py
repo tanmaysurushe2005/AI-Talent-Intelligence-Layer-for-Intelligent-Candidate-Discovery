@@ -1,4 +1,5 @@
 import re
+from .llm_client import LLMClientError, call_gemini_json, gemini_is_enabled
 from .schemas import StructuredJD
 
 # A small controlled vocabulary for the prototype. In production this would be
@@ -57,8 +58,49 @@ def _extract_seniority(text: str) -> str:
 
 
 def extract_structured_jd(text: str) -> StructuredJD:
-    """Rule-based extraction. Swap this for an LLM call (see README) once you
-    wire up an API key -- keep the same StructuredJD output contract."""
+    """Extract a structured JD.
+
+    Uses Gemini when `GEMINI_API_KEY` is available, and falls back to the
+    rule-based extractor if the model call fails or is unavailable.
+    """
+
+    if gemini_is_enabled():
+        prompt = (
+            "You are extracting a job description into a strict JSON object.\n\n"
+            "Return only valid JSON with exactly these keys:\n"
+            "- role: string\n"
+            "- required_skills: array of strings\n"
+            "- nice_to_have_skills: array of strings\n"
+            "- min_experience_years: integer\n"
+            "- education: string or null\n"
+            "- location: string or null\n"
+            "- domain: string or null\n"
+            "- seniority: string or null\n\n"
+            "Rules:\n"
+            "- Infer required skills from the responsibilities and requirements.\n"
+            "- Infer nice-to-have skills from optional sections like 'nice to have' or 'preferred'.\n"
+            "- Use lowercase skill names when possible.\n"
+            "- Keep the output concise and grounded in the text.\n\n"
+            f"Job description:\n{text}"
+        )
+
+        try:
+            extracted = call_gemini_json(prompt)
+            return StructuredJD(
+                role=str(extracted.get("role", "")).strip() or _extract_role(text),
+                required_skills=[str(skill).strip().lower() for skill in extracted.get("required_skills", []) if str(skill).strip()],
+                nice_to_have_skills=[str(skill).strip().lower() for skill in extracted.get("nice_to_have_skills", []) if str(skill).strip()],
+                min_experience_years=int(extracted.get("min_experience_years", 0) or 0),
+                education=extracted.get("education") or None,
+                location=extracted.get("location") or None,
+                domain=extracted.get("domain") or None,
+                seniority=extracted.get("seniority") or None,
+                raw_text=text,
+            )
+        except (LLMClientError, ValueError, TypeError):
+            pass
+
+    """Rule-based extraction. Kept as a fallback for offline/demo runs."""
 
     # naive split: treat "nice to have" section separately if present
     lower = text.lower()
